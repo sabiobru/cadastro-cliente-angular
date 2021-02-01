@@ -33,10 +33,27 @@ export class ClientService {
     return this.http.get(`${this.url}/client/${id}`);
   }
 
+ /**
+  * @description Metodo para consulta por CPF verificando duplicidade
+  * @method getByIdentityDocument
+  * @returns Objeto de cliente referente ao CPF cadastrado, se houver.
+  */
+  getByIdentityDocument(identityDocument : string): Observable <any> {
+    return this.http.get(`${this.url}/client/getIdDocument/${identityDocument}`);
+  }
+
+ /**
+  * @description Metodo para consulta por CPF verificando duplicidade
+  * @method getByName
+  * @returns Listagem de cientes cadastrados com o nome respectivo
+  */
+  getByName(name: string): Observable <any>{
+    return this.http.get(`${this.url}/client/getByName/${name}`);
+  }
+
   /**
  * @description Metodo para gravar um novo cliente
  * @method save
- * @returns Listagem com todos os clientes
  */
   save(client: ClienteModel): Observable<any> {
     return this.http.post(`${this.url}/client`, client);
@@ -45,7 +62,6 @@ export class ClientService {
   /**
   * @description Metodo para atualizar o cliente
   * @method update
-  * @returns Listagem com todos os clientes
   */
   update(client: ClienteModel, id: number): Observable<any> {
     return this.http.put(`${this.url}/clientes/${id}`, client);
@@ -54,10 +70,11 @@ export class ClientService {
   /**
   * @description Metodo para listar por Id
   * @method delete
-  * @returns Listagem com todos os clientes
   */
-  delete(id: number): Observable<any> {
+  delete(id: number): Observable <any> {
     return this.http.delete(`${this.url}/client/${id}`);
   }
+
+
 
 }
