@@ -1,0 +1,17 @@
+div#tableClient {
+    height: 25rem;
+    width: 100%;
+    overflow: auto;
+    border: 3px solid #cacfd4;
+    padding: 20px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+a#btn-add {
+    position: absolute;
+    top: -80px;
+    right: -20px;
+    content: '';
+    border-radius: 500px;
+}
